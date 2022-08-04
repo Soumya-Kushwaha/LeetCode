@@ -1,0 +1,14 @@
+class Solution {
+public:
+    char findTheDifference(string s, string t) {
+        
+        int res = 0, ans = 0;
+        for (int i=0; i<s.size(); i++)
+            res = res ^ s[i];
+        
+        for (int i=0; i<t.size(); i++)
+            ans = ans ^ t[i];
+        
+        return res^ans;
+    }
+};
