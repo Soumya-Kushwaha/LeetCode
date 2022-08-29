@@ -2,20 +2,14 @@ class Solution {
 public:
     int nearestValidPoint(int x, int y, vector<vector<int>>& points) {
         
-        int man_dist, index, min_dist = INT_MAX, count = 0;
-        for (int i=0; i < points.size(); i++){
+        int manhattan, min = INT_MAX, ans = -1;
+        for (int i=0; i < points.size(); i++)
             if ((points[i][0] == x) || (points[i][1] == y)){
-                man_dist = abs(x - points[i][0]) + abs(y - points[i][1]);
-                count++;
+                manhattan = abs(x - points[i][0]) + abs(y - points[i][1]);
                 
-                if (min_dist > man_dist){
-                    min_dist = man_dist;
-                    index = i;
-                }
+                if (min > manhattan)
+                    min = manhattan, ans = i;
             }
-        }
-        if (count == 0)
-            return -1;
-        else return index;
+        return ans;
     }
 };
