@@ -3,19 +3,11 @@ public:
     int majorityElement(vector<int>& nums) {
         sort(nums.begin(), nums.end());
         return nums[nums.size()/2];
-        
-        /*int n = nums.size();
-        int count = 0;
-        int max = INT_MIN;
-        
-        for (int i=0; i<n-1; i++){
-            if (nums[i] == nums[i+1])
-                count++;
-            if (count > max){
-                max = count; 
-            }
-        }
-        return max;
-        */
     }
 };
+
+/*
+    Sort the array.
+    Since the majority element appears n/2 times, it will appear at n/2th position.
+    So return nums[n/2th position]
+*/
