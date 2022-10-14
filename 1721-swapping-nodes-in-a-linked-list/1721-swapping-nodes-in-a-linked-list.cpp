@@ -20,26 +20,13 @@ public:
             curr = curr -> next;
         }
         
-       /* if (k == 1){
-            reverse(arr.begin(), arr.end());
-            
-            curr = head;
-            curr -> val = arr[0];
+        swap(arr[k-1], arr[arr.size()-k]);
+        
+        curr = head;
+        for (int i=0; i<arr.size(); i++){
+            curr -> val = arr[i];
             curr = curr -> next;
-            curr -> val = arr[1];
         }
-        
-        else{
-         */   swap(arr[k-1], arr[arr.size()-k]);
-        
-            curr = head;
-            for (int i=0; i<arr.size(); i++){
-                curr -> val = arr[i];
-                curr = curr -> next;
-            }
-        //}
-        
-        //curr -> next = NULL;
         
         return head;
     }
