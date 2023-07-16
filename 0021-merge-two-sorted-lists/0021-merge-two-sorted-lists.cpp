@@ -9,6 +9,9 @@
  * };
  */
 
+//  Iterative + Internal Space
+//  TC - O(N)
+//  SC - O(1)
 class Solution {
 public:
     ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
@@ -51,7 +54,9 @@ public:
 };
 
 
-/* Recursion + New List
+/* Recursion + External Space
+    TC - O(2N)
+    SC - O(N)
 
 class Solution {
 public:
