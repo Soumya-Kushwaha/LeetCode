@@ -12,8 +12,6 @@ class Solution {
 public:
     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
         stack<int> st1, st2;
-        //ListNode *dummy = new ListNode();
-        //ListNode *temp = dummy;
         
         while (l1 != NULL){
             st1.push(l1->val);
