@@ -8,6 +8,24 @@
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
+
+// Recursive ------------------
+
+class Solution {
+public:
+    ListNode* removeElements(ListNode* head, int val) {
+        if (head == NULL)
+            return NULL;
+        
+        head->next = removeElements(head->next, val);
+        
+        return (head->val == val) ? head->next : head;
+    }
+};
+
+
+/* Iterative ------------------
+
 class Solution {
 public:
     ListNode* removeElements(ListNode* head, int val) {
@@ -27,3 +45,4 @@ public:
         return dummy ->next;
     }
 };
+*/
