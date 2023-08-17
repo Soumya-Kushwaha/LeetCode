@@ -8,18 +8,32 @@ class Solution
 public:
     vector<int> singleNumber(vector<int> nums) 
     {
-        sort(nums.begin(),  nums.end());
         vector<int> ans;
+        int xorr = 0;
+        for (int i=0; i<nums.size(); i++)
+            xorr ^= nums[i];
+            
+        int number = xorr & -xorr;
+        int xor1 = 0, xor2 = 0;
         
-        for (int i=0; i<nums.size();){
-            if (nums[i+1] == nums[i])
-                i = i+2;
-            else{
-                ans.push_back(nums[i]);
-                i++;
-            }
+        for (int i=0; i<nums.size(); i++){
+            if (nums[i] & number)
+                xor1 ^= nums[i];
+            else
+                xor2 ^= nums[i];
         }
+        
+        if (xor1 > xor2){
+            ans.push_back(xor2);
+            ans.push_back(xor1);
+        }
+        else{
+            ans.push_back(xor1);
+            ans.push_back(xor2);
+        }
+            
         return ans;
+        
     }
 };
 
