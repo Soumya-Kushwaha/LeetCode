@@ -3,23 +3,25 @@ public:
     string addBinary(string a, string b) {
         int i = a.length() - 1;
         int j = b.length() - 1;
-        int carry = 0;
+        int carry = 0, sum;
         string ans;
 
-        while (i >= 0 || j >= 0 || carry){
-            if (i >= 0){
-                carry += a[i] - '0';
-                i--;
-            }
-            if (j >= 0){
-                carry += b[j] - '0';
-                j--;
-            }
-            ans += (carry % 2 + '0');
-            carry /= 2;
+        while (i >= 0 || j >= 0){
+            sum = carry;
+            if (i >= 0)
+                sum += (a[i] - '0');
+            
+            if (j >= 0)
+                sum += (b[j] - '0');
+             
+            ans += to_string(sum % 2);
+            carry = sum / 2;
+            i--;
+            j--;
         }
+        if (carry != 0)
+            ans += '1';
         reverse(ans.begin(), ans.end());
         return ans;
-        
     }
 };
