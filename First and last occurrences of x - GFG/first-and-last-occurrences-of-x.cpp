@@ -45,15 +45,9 @@ class Solution
 
     vector<int> find(int arr[], int n , int x )
     {
-        vector<int> ans(2, -1);
         int first = startIndex(arr, n, x);
-
-        if (first != -1){
-            int last = endIndex(arr, n, x);
-            ans[0] = first;
-            ans[1] = last;
-        }
-        return ans;
+        int last = endIndex(arr, n, x);
+        return {first, last};
     }
 };
 
