@@ -11,23 +11,17 @@
  */
 class Solution {
 public:
+    bool symm(TreeNode* a, TreeNode* b){
+        if (a == NULL ||b == NULL)
+            return (a == b);
+        
+        return (a->val == b->val && symm(a->left, b->right) && symm(a->right, b->left));
+    }
+    
     bool isSymmetric(TreeNode* root) {
         if (root == NULL)
             return true;
         
-        return symmetric(root->left, root->right);
-    }
-    
-    bool symmetric(TreeNode* one, TreeNode* two){
-        if (!one && !two)
-            return true;
-        
-        if (!one || !two)
-            return false;
-        
-        if (one->val != two->val)
-            return false;
-    
-        return symmetric(one->left, two->right) && symmetric(one->right, two->left);
+        return symm(root->left, root->right);
     }
 };
