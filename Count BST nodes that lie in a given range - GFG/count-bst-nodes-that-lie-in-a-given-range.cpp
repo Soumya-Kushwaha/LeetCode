@@ -91,12 +91,15 @@ public:
         if (root == NULL)
             return;
             
+        // when to count the node
         if (root->data >= l && root->data <= h)
             count++;
             
+        // when to search left subtree
         if (root->data >= l)
             countNodes(root->left, l, h, count);
             
+        // when to search right subtree
         if (root->data <= h)
             countNodes(root->right, l, h, count);
     }
