@@ -2,7 +2,7 @@ class Solution {
 public:
     void nextPermutation(vector<int>& nums) {
         
-        int swapper, breakpoint = -1;
+        int breakpoint = -1;
         int n = nums.size();
         
         // traverse from end of array to find breakpoint (where arr[i] < arr[i+1])
