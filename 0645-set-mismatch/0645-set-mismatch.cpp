@@ -1,7 +1,6 @@
 class Solution {
 public:
     vector<int> findErrorNums(vector<int>& nums) {
-        vector<int> ans(2);
         int n = nums.size();
         
         vector<bool> check(n+1, 0);
