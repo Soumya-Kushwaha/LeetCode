@@ -1,18 +1,19 @@
-bool cmp(vector<int>& a, vector<int>& b) {return a[1] < b[1];}
-
 class Solution {
-public:  
-    int findMinArrowShots(vector<vector<int>>& segments) 
-    {
-        sort(segments.begin(), segments.end(), cmp);
-        int ans = 0, arrow = 0;
-        for (int i = 0; i < segments.size(); i ++) 
-        {
-            if (ans == 0 || segments[i][0] > arrow) 
-            {
+public:
+    int findMinArrowShots(vector<vector<int>>& points) {
+        
+        sort(points.begin(), points.end());
+        
+        int lastpoint = points[0][1];
+        int ans = 1;
+        
+        for(auto point : points) {
+            if(point[0] > lastpoint) {
                 ans++;
-                arrow = segments[i][1];
+                lastpoint = point[1];
             }
+            
+            lastpoint = min(point[1],lastpoint);
         }
         return ans;
     }
